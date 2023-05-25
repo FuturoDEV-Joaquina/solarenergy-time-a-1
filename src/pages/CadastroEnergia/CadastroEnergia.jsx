@@ -1,7 +1,9 @@
+import Container from "../../components/templates/Container"
+
 export default function CadastroEnergia() {
     return (
-      <div>
+      <Container>
         <h1>CadastroEnergia</h1>
-      </div>
+      </Container>
     )
 }
