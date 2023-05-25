@@ -1,8 +1,10 @@
+import Container from "../../components/templates/Container"
+
 export default function Dashboard() {
     return (
-      <div>
+      <Container>
         <h1>Dashboard</h1>
-      </div>
+      </Container>
     )
 }
 
