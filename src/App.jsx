@@ -14,7 +14,6 @@ function App() {
             {/* rota para a Home/dashboard */}
         <Route path="/dashboard" element={<Navigate replace to="/" />} />
             {/* redirecionamento da rota dashboard para a "/" */}
-
         <Route path="/unidades" element={<Unidades />} />
             {/* rota para a lista de Unidades */}
         <Route path="/cadastro" element={<CadastroEnergia />} />  
