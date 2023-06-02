@@ -1,4 +1,4 @@
-import { Await, BrowserRouter } from "react-router-dom"
+import { BrowserRouter } from "react-router-dom"
 import { render, screen } from "@testing-library/react";
 import Navbar from "./Navbar";
 import userEvent from '@testing-library/user-event'
@@ -8,7 +8,6 @@ jest.mock("react-router-dom", () => ({
     ...jest.requireActual("react-router-dom"),
     useNavigate: () => mockNavigate,
 }));
-
 
 const user = userEvent.setup()
 
@@ -25,7 +24,6 @@ describe("Navbar", () => {
         renderComponent()
         const buttonDashboard = screen.getByRole("button", { name: /Dashboard/i });
         expect(buttonDashboard).toBeInTheDocument();
-        
     })
 
 
@@ -33,9 +31,6 @@ describe("Navbar", () => {
         renderComponent()
         const titulo = screen.getByText("DevInHouse - Navbar");
         expect(titulo).toBeInTheDocument();
-
-
-
     })
 
     it("deveria redirecionar para a página dashboard quando clica no botão dashboard",async() => {
@@ -45,8 +40,15 @@ describe("Navbar", () => {
         await user.click(buttonDashboard)
 
         expect(mockNavigate).toHaveBeenCalledWith("/")
-        
+    })
 
+    it("deveria redirecionar para a página unidades quando clica no botão Unidade Consumidora",async() => {
+        renderComponent()
+        const botaoUnidadeConsumidora = screen.getByRole("button", { name: /Unidade Consumidora/i });
+
+        await user.click(botaoUnidadeConsumidora)
+
+        expect(mockNavigate).toHaveBeenCalledWith("/unidades")
     })
 
 
